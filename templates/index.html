@@ -514,5 +514,28 @@
     <script src="{{ url_for('static',  filename ='jquery.magnific-popup.min.js') }}"></script> <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
     <script src="{{ url_for('static',  filename ='slick.min.js') }}"></script>              <!-- https://kenwheeler.github.io/{{ url_for('static',  filename ='port.css') }} -->
     <script src="{{ url_for('static',  filename ='port.js') }}"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCRwTO3mziIs7Ojy-1zrhAHAVzgU7MGtrE",
+          authDomain: "my-profile-912f1.firebaseapp.com",
+          projectId: "my-profile-912f1",
+          storageBucket: "my-profile-912f1.appspot.com",
+          messagingSenderId: "786580744170",
+          appId: "1:786580744170:web:cc7340f2d5f4344c25b493",
+          measurementId: "G-JW0HMQ16LE"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
 </body>
 </html> 
