@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewel Maxwell</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/specimen/Kumbh+Sans -->
+    <link rel="shortcut icon" href="{{ url_for('static',  filename ='PEN.png') }}" />
+    <link rel="stylesheet" href="https://fontawesome.com">  <!-- https://fontawesome.com/-->  
+    <link rel="stylesheet" href="{{ url_for('static',  filename ='magnific-popup.css') }} ">       <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
+    <link rel="stylesheet" href="{{ url_for('static',  filename ='bootstrap.min.css') }} ">        <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{{ url_for('static',  filename ='slick.min.css') }}">          <!-- https://kenwheeler.github.io/{{ url_for('static',  filename ='port.css') }} -->
+    <link rel="stylesheet" href="{{ url_for('static',  filename ='slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',  filename ='port.css') }} ">
+<!--
+ major start
+
+-->
+</head>
+<body>    
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Leftside bar -->
+            <div id="tm-sidebar" class="tm-sidebar"> 
+                <nav class="tm-nav">
+                    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                   <img src="{{  url_for ('static', filename='bars-solid.svg' ) }} " class="fa-solid fa-bars">
+                    </button>
+                    <div>
+                        <div class="tm-brand-box">
+                            <h1 class="tm-brand">JMAX</h1>
+                        </div>                
+                        <ul id="tm-main-nav">
+                            <li class="nav-item">                                
+                                <a href="#home" class="nav-link current">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-home nav-icon"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#gallery" class="nav-link">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-images nav-icon"></i>
+                                    Works
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#about" class="nav-link">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-user-friends nav-icon"></i>
+                                    About
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#contact" class="nav-link">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-envelope nav-icon"></i>
+                                    Contact
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/computerixed" class="nav-link external" target="_parent" rel="sponsored">
+                                    <div class="triangle-right"></div>
+                                    <i class="fas fa-external-link-alt nav-icon"></i>
+                                    External
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <footer class="mb-3 tm-mt-100">
+                        Design: <a href="https://github.com/computerixed" target="_parent" rel="sponsored">Moses_Jewel_Maxwell</a>
+                    </footer>
+                </nav>
+            </div>
+            
+            <div class="tm-main">
+                <!-- Home section -->
+                <div class="tm-section-wrap">
+                    <div class="tm-parallax" data-parallax="scroll" data-image-src="{{ url_for ('static', filename='img-01.jpg') }}"></div>                   
+                    <section id="home" class="tm-section">
+                        <h2 class="tm-text-primary">Welcome to JMAX</h2>
+                        <hr class="mb-5">
+                        <div class="row">
+                            <div class="col-lg-6 tm-col-home mb-4">
+                                <div class="tm-text-container">
+                                    <div class="tm-icon-container mb-5 mr-0 ml-auto">
+                                        <i class="fas fa-satellite-dish fa-4x tm-text-primary"></i>
+                                    </div> 
+                                    <h3>Moses Jewel Maxwell</h3>                               
+                                    <p>
+                                        is a dedicated and focused professional software developer who excels
+                                        at prioritizing and  completing multiple tasks simultaneously. Specialized in administrative support,
+                                        Committed to delivering high quality result with little and in most cases no supervision.
+                                        Energetic, Organized, Excellence Minded and Coordinated.
+                                    </p>
+                                    <p>
+                                 
+                                    </p>
+                                </div>                                
+                            </div>
+                            <div class="col-lg-6 tm-col-home mb-4">
+                                <div class="tm-text-container">
+                                    <div class="tm-icon-container mb-5 mr-0 ml-auto">
+                                        <i class="fas fa-broadcast-tower fa-4x tm-text-primary"></i>
+                                    </div>                                 
+                                    <p>  He is also a Data analyst using Python Pandas, UI / UX Designer,
+                                        Graphic Designer, and proficient in the use of Microsoft Office packages for office advancement, have high leadership charisma, and ability to colabour in a team.
+                                        <br>
+                                        Regarded by mentors and superiors as a higly enterprising individual with a strong focus and competitive mind-set to realize
+                                        challenging goals and produce outstanding results. Maxwel Seeks an opportunity to put his skills into effctive use, channeling them to bring that progress your 
+                                        organization is looking for.
+                                    </p>
+                                    <div class="text-right">
+                                        <a href="#gallery" class="btn btn-primary tm-btn-next">Next Page</a>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="tm-hr-short mb-5">
+                        <div class="row tm-row-home">                            
+                            <div class="tm-col-home tm-col-home-l">
+                                <div class="media mb-4">
+                                    <i class="fas fa-scroll fa-4x tm-post-icon tm-text-primary"></i>
+                                    <div class="media-body">
+                                        <h3>EDUCATION</h3>
+                                        <a href="#" class="d-block mb-2 tm-text-primary tm-post-link">2018 - 2022 B.S.c</a>  
+                                        <p>
+                                            <a target="_blank" href="https://www.uniabuja.edu.ng/">UNIVERSITY OF ABUJA, NIGERIA </a><a href="https://templatemo.com/page/1" target="_parent" rel="sponsored">Computer Science <br><small>Second Class Upper</small></a>. 
+                                             </p>
+                                    </div>                                    
+                                </div>
+                                <hr class="tm-hr-short mb-5">
+                                
+                                <div class="media mb-4">
+                                    
+                                    <i class="fas fa-cloud-sun fa-4x tm-post-icon tm-text-primary"></i>
+                                    <div class="media-body">
+                                        <a href="#" class="d-block mb-2 tm-text-primary tm-post-link"><h3>EXPERIENCES</h3> <br>VOLUNTEERING TEACHER <br> Feb 2022 - July 2022</a>  
+                                        <p>
+                                            <B>Jewel Youth Empowerment Initiative, <br> <small>Passo, Gwagwalada, Abuja</small></B>
+                                        </p>
+                                    </div>                                    
+                                </div>
+                                                                    
+                                </div>
+                                <div class="media mb-4">
+                                    <i class="fas fa-dove fa-4x tm-post-icon tm-text-primary"></i>
+                                    <div class="media-body">
+                                        <p class="d-block mb-2 tm-text-primary tm-post-link">STUDENT LEADER <br> Feb 2018 - Jan 2022  </p> 
+                                        <p>
+                                            <a target="_blank" href="https://nifes.org.ng/"><b>Nigeria Fellowship of Evangelical Students, Abuja Zone</b></a><br>
+                                          <small>
+                                              <li>Brought an increase in maintaining logs, reports, and records in relevant databases.</li>
+                                              <li>Actively participated in proactive support which yield in advancement of programs and students Life.</li>
+                                          </small>
+                                        </p>
+                                    </div>                                    
+                                </div>
+                                <hr class="m4-5">
+
+                                <div class="media mb-4">
+                                    <i class="fas fa-dove fa-4x tm-post-icon tm-text-primary"></i>
+                                    <div class="media-body">
+                                        <a href="#" class="d-block mb-2 tm-text-primary tm-post-link"><h3>SKILL HIGHLIGHT</h3> </a>  
+                                        <ul>
+                                            <li>Excellent interpersonal skills through good verbal and written communication skills. </li>
+                                            <li>Excellent organizational, planning and reporting skills with attention to details.</li>
+                                            <li>Proficiency in Microsoft Suite. </li>
+                                            <li>Critical thinking, strong time management skills to stay on top of time sensitive projects and urgent requests.</li>
+                                            <li>Strong leadership, good judgement and team playing skills.</li>
+                                            <li>Leadership, management, organizational, teamwork, problem solving, listening and conflict resolution skills with ability to simplify knowledge into relatable, digestible and teachable chunks.</li>    
+                                        </ul>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
+                </div>
+                <!-- Gallery section -->
+                <div class="tm-section-wrap">
+                    <div class="tm-parallax" data-parallax="scroll" data-image-src="{{ url_for ('static', filename='img-02.jpg' ) }}"></div>                   
+                    <section id="gallery" class="tm-section">
+                        <h2 class="tm-text-primary">MY WORKS</h2>
+                        <hr class="mb-5">
+                        <ul class="tm-gallery-links">
+                            <li>
+                                <a href="javascript:void(0);" class="active tm-gallery-link" data-filter="*">
+                                    <i class="fas fa-layer-group tm-gallery-link-icon"></i>
+                                    All
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="tm-gallery-link" data-filter="portrait">
+                                    <i class="fas fa-portrait tm-gallery-link-icon"></i>
+                                    Portraits
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="tm-gallery-link" data-filter="nature">
+                                    <i class="fas fa-leaf tm-gallery-link-icon"></i>
+                                    Graphics Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="tm-gallery-link" data-filter="animal">
+                                    <i class="fas fa-paw tm-gallery-link-icon"></i>
+                                    Blogs &amp; Website
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="tm-gallery-link" data-filter="building">
+                                    <i class="far fa-building tm-gallery-link-icon"></i>
+                                    Data Analysis
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tm-gallery">
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='DUPLICATING_Seyz_flyer.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='DUPLICATING_Seyz_flyer.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item animal">
+                                <img src="{{ url_for('static',  filename ='jmax.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='jmax.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            <figure class="effect-honey tm-gallery-item building">
+                                <img src="{{ url_for('static',  filename ='ATM_data_analysis.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static', filename ='ATM_data_analysis.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='femi.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='femi.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            <figure class="effect-honey tm-gallery-item portrait">
+                                <img src="{{ url_for('static',  filename ='portrait-02.jpg') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='portrait-02.jpg') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item animal">
+                                <img src="{{ url_for('static',  filename ='Booking_App.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='Booking_App.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            <figure class="effect-honey tm-gallery-item building">
+                                <img src="{{ url_for('static',  filename ='Machine_with_Python.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='Machine_with_Python.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item portrait">
+                                <img src="{{ url_for('static',  filename ='portrait-03.jpg') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='portrait-03.jpg') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item animal">
+                                <img src="{{ url_for('static',  filename ='web_login_page.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='web_login_page.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>  
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='abel_day.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='abel_day.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                             
+                            <figure class="effect-honey tm-gallery-item animal">
+                                <img src="{{ url_for('static',  filename ='online_books_App.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='online_books_App.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='kaibel flyer2.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='kaibel flyer2.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            
+                            <figure class="effect-honey tm-gallery-item animal">
+                                <img src="{{ url_for('static',  filename ='PENHIS.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='PENHIS.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='kaibel flyer6.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='kaibel flyer6.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>  
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='kaibel_back_color.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='kaibel_back_color.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='NDIBABY.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='NDIBABY.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='maxwell1.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='maxwell1.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                           
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='kaibel_color.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='kaibel_color.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure> 
+                            
+                            <figure class="effect-honey tm-gallery-item nature">
+                                <img src="{{ url_for('static',  filename ='PEN.png') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='PEN.png') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item portrait">
+                                <img src="{{ url_for('static',  filename ='portrait-01.jpg') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='portrait-01.jpg') }}">View more</a>						
+                                </figcaption>			
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item building">
+                                <img src="{{ url_for('static',  filename ='building-01.jpg') }}" alt="Image"/>
+                                <figcaption>
+                                    <h2><i>Jmax Design</i></h2>
+                                    <a href="{{ url_for('static',  filename ='building-01.jpg') }}">View more</a>						
+                                </figcaption>			
+                            </figure>  
+                        </div>
+                    </section>
+                </div>
+                <!-- About section -->
+                <div class="tm-section-wrap">
+                    <div class="tm-parallax" data-parallax="scroll" data-image-src="{{ url_for ('static', filename='img-03.jpg') }}"></div>
+                    <section id="about" class="tm-section">
+                        <h2 class="tm-text-primary">About JMAX</h2>
+                        <hr class="mb-5">
+                        
+                        <div class="row tm-row-about">
+                            <div class="tm-col-about tm-col-about-l">
+                                <h3 class="mb-3 tm-text-primary tm-about-title">Moses_Jewel_Maxwell</h3>
+                                <p>A Graduate of Computer Science from the university of Abuja, Nigeria.</p>
+                               
+                                It's my pleasure to bring that beauty and productivity your organization truely deserves.</p>
+                                <p class="mb-4">
+                                    <p class="mb-4">
+                                        <a style="text-decoration: underline; color:rgb(22, 140, 145);"  rel="sponsored" href="https://agwujewel@gmail.com" target="_parent">send me a
+                                           <strong>Mail</strong></a>,<br> If you  find me fit to work on any project for you or your organization.<br> Thank you. </p>
+                                           <p class="mb-4"></p>
+                            </div>
+                            <div class="tm-col-about">
+                                <figure class="">
+                                    <img style="border-radius: 200px; box-shadow:rgba(37, 36, 36, 0.8);"src="{{ url_for('static',  filename ='about-01.jpg') }}" alt="Featured Item">
+                                    <p>
+                                        <h4 class="tm-text-secondary tm-about-subtitle">Software Engineer</h4>
+                                    </p>
+                                    <figcaption>
+                                        <strong>My handles are:</strong>
+                                        <ul class="tm-social">
+                                            <li target="_blank" style="margin-right:10px; width:11px;" ><a href="https://www.facebook.com/profile.php?id=100075132918018" class="tm-social-link"><img src="{{    url_for ('static', filename='facebook-f-brands.svg' ) }} " class="fab fa-facebook"></a></li>
+                                            <li target="_blank" style="margin-left:10px;"><a href="https://twitter.com/" class="tm-social-link"><img src="{{    url_for ('static', filename='twitter-brands.svg' ) }} " class="fa-brand fa-twitter"></a></li>
+                                            <li target="_blank" style="margin-left:12px; width:15px;"><a href="https://instagram.com/maxwellmoses2017/" class="tm-social-link"><img src="{{    url_for ('static', filename='instagram-brands.svg' ) }} " class="fa-brand fa-instagram">
+                                            </a></li>
+                                            <li target="_blank"  style="margin-left:15px;"><a href="https://api.whatsapp.com/send?phone={+2347069452279}&text=Hello JMAX, I want to ..." class="tm-social-link"><img src="{{    url_for ('static', filename='whatsapp-brands.svg' ) }} " class="fa-brand fa-whatsapp"></a></li>
+                                        </ul>
+                                    </figcaption>
+                                    <b>Check out my : </b><br>
+                                    <a target="_blank" style="text-decoration: underline; color:rgb(22, 140, 145);" href="https://github.com/computerixed?tab=repositories">Repostories</a> on Github &amp;
+                                    <br><b>Download a soft copy of my </b><br>
+                                    <a  target="_blank" style="text-decoration: underline; color:rgb(22, 140, 145);"  href="https://drive.google.com/file/d/1WmZow2PiFTqM8QdMA_x1CUuIohB6Nlke/view?usp=sharing">CV</a> from my Drive.
+                                </figure>
+                                
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Contact section -->
+                <div class="tm-section-wrap">
+                    <div class="tm-parallax" data-parallax="scroll" data-image-src="{{ url_for ('static', filename='img-04.jpg') }}"></div>
+                    <div id="contact" class="tm-section">
+                        <h2 class="tm-text-primary">Contact JMAX</h2>
+                        <hr class="mb-5">
+                        <div class="row">
+                            <div class="col-xl-6 tm-contact-col-l mb-4">
+                                <form id="contact-form" action="" method="POST" class="tm-contact-form">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control rounded-0" placeholder="Name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control rounded-0" placeholder="Email" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="contact-select" name="inquiry">
+                                            <option value="-">Subject</option>
+                                            <option value="uiux">Blogs &amp; Website Devs</option>
+                                            <option value="uiux">Data Analysid</option>
+                                            <option value="sales">Sales &amp; Marketing</option>
+                                            <option value="creative">Creative Design</option>
+                                            <option value="uiux">UI / UX</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea rows="8" name="message" class="form-control rounded-0" placeholder="Message" required=></textarea>
+                                    </div>
+            
+                                    <div class="form-group tm-text-right">
+                                        <button type="submit" class="btn btn-primary">Send</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-xl-6 tm-contact-col-r">
+                                <!-- Map -->
+                                <div class="mapouter mb-4">
+                                    <div class="gmap_canvas">
+                                        <iframe width="100%" height="520" id="gmap_canvas"
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.8378879329307!2d7.2081993644857265!3d8.98706074354999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e7ba7f15b68c1%3A0x8f7f781db6f44e26!2sIddo%20Sarki%20Primary%20School%2C%20Airport%20Rd%2C%20900102%2C%20Abuja!5e0!3m2!1sen!2sng!4v1661550474568!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        
+                                    </div>
+                                </div>
+            
+                                <!-- Address -->
+                                <address class="mb-4">
+                                    Iddo, off Abuja-Lokoja Road<br>
+                                    FCT, Abuja<br>
+                                    Nigeria.
+                                </address>
+            
+                                <!-- Links -->
+                                <ul class="tm-contact-links mb-4">
+                                    <li class="mb-2">
+                                        <a href="tel:+2347069452279">
+                                            <i class="fas fa-phone mr-2 tm-contact-link-icon"></i>
+                                            Tel: +2347069452279
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:agwujewel@gmail.com">
+                                            <i class="fas fa-at mr-2 tm-contact-link-icon"></i>
+                                            Email: agwujewel@gmail.com
+                                        </a>
+                                    </li>
+                                </ul>
+                                <li>
+                                
+                               <a target="_blank" href="linkedin.com/in/jewel-moses-7371a1227"> LinkedIn:</a>  
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copyright -->                
+                <div class="tm-section-wrap tm-copyright row">
+                    <div class="col-12">
+                        <div class="text-right">
+                            Copyright @ 2020 <a href="#" style="text-decoration: underline; color:rgb(22, 140, 145);"> Jmax </a> Initiatives
+                        </div> 
+                    </div>
+                </div>                 
+            </div> <!-- .tm-main -->                      
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+    <script src="{{ url_for('static',  filename ='jquery-3.4.1.min.js') }}"></script>          <!-- https://jquery.com/ -->
+    <script src="{{ url_for('static',  filename ='jquery.singlePageNav.min.js') }}"></script>  <!-- https://github.com/ChrisWojcik/single-page-nav -->
+    <script src="{{ url_for('static',  filename ='parallax.min.js') }}"></script>     <!-- https://pixelcog.github.io/parallax.{{ url_for('static',  filename ='slick.min.js') }} -->
+    <script src="{{ url_for('static',  filename ='imagesloaded.pkgd.min.js') }}"></script>     <!-- https://imagesloaded.desandro.com/ -->
+    <script src="{{ url_for('static',  filename ='isotope.pkgd.min.js') }}"></script>          <!-- https://isotope.metafizzy.co/ -->
+    <script src="{{ url_for('static',  filename ='jquery.magnific-popup.min.js') }}"></script> <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
+    <script src="{{ url_for('static',  filename ='slick.min.js') }}"></script>              <!-- https://kenwheeler.github.io/{{ url_for('static',  filename ='port.css') }} -->
+    <script src="{{ url_for('static',  filename ='port.js') }}"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCRwTO3mziIs7Ojy-1zrhAHAVzgU7MGtrE",
+          authDomain: "my-profile-912f1.firebaseapp.com",
+          projectId: "my-profile-912f1",
+          storageBucket: "my-profile-912f1.appspot.com",
+          messagingSenderId: "786580744170",
+          appId: "1:786580744170:web:cc7340f2d5f4344c25b493",
+          measurementId: "G-JW0HMQ16LE"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html> 
