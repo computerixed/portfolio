@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SwiftWears - Modern Fashion Brand Portfolio">
+    <title>SwiftWears Website | Jewel Maxwell Moses</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1f1f1f;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-primary: #e85d04;
+            --accent-secondary: #f48c06;
+            --accent-gradient: linear-gradient(135deg, #e85d04 0%, #f48c06 100%);
+            --border-color: #2a2a2a;
+            --font-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        ::selection {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .brand-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(232, 93, 4, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            border: none;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .product-category {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--bg-primary);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                min-height: 70vh;
+                padding: 100px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">SWIFTWEARS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: var(--accent-primary);">← Back to Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span class="section-subtitle mb-3 d-block">New Collection 2024</span>
+                    <h1 class="hero-title">Elevate Your Style With SwiftWears</h1>
+                    <p class="hero-subtitle">Discover trendy fashion that blends comfort with contemporary design. Quality apparel for the modern individual.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#products" class="btn btn-primary btn-lg">Shop Now</a>
+                        <a href="#about" class="btn btn-outline btn-lg">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="images/swiftwears.jpeg" alt="SwiftWears Fashion" class="img-fluid rounded-4" style="transform: rotate(-3deg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="images/jmax.png" alt="About SwiftWears" class="about-image">
+                </div>
+                <div class="col-lg-6">
+                    <span class="section-subtitle">About Us</span>
+                    <h2 class="section-title">Fashion That Speaks</h2>
+                    <p class="text-secondary mb-4">At SwiftWears, we believe fashion is more than just clothing – it's a form of self-expression. Our collection is designed for individuals who want to make a statement without saying a word.</p>
+                    <p class="text-secondary mb-4">Founded with a vision to provide quality, affordable fashion, SwiftWears offers curated pieces that balance timeless elegance with modern trends. Each piece is thoughtfully designed and crafted with attention to detail.</p>
+                    <div class="row g-4 mt-3">
+                        <div class="col-6">
+                            <h3 class="text-accent" style="color: var(--accent-primary); font-size: 2rem; font-weight: 800;">500+</h3>
+                            <p class="text-secondary mb-0">Happy Customers</p>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-accent" style="color: var(--accent-primary); font-size: 2rem; font-weight: 800;">50+</h3>
+                            <p class="text-secondary mb-0">Unique Designs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Our Collection</span>
+                <h2 class="section-title">Featured Products</h2>
+            </div>
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 1" class="product-image">
+                        <div class="product-info">
+                            <span class="product-category">Casual Wear</span>
+                            <h4 class="product-title">Classic Tee</h4>
+                            <span class="product-price">₦8,500</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 2" class="product-image" style="filter: brightness(0.9);">
+                        <div class="product-info">
+                            <span class="product-category">Street Style</span>
+                            <h4 class="product-title">Urban Hoodie</h4>
+                            <span class="product-price">₦15,000</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 3" class="product-image" style="filter: brightness(0.85);">
+                        <div class="product-info">
+                            <span class="product-category">Formal</span>
+                            <h4 class="product-title">Slim Fit Shirt</h4>
+                            <span class="product-price">₦12,000</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 4" class="product-image" style="filter: brightness(0.95);">
+                        <div class="product-info">
+                            <span class="product-category">Accessories</span>
+                            <h4 class="product-title">Caps Collection</h4>
+                            <span class="product-price">₦5,000</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 5" class="product-image" style="filter: brightness(0.88);">
+                        <div class="product-info">
+                            <span class="product-category">Casual</span>
+                            <h4 class="product-title">Joggers</h4>
+                            <span class="product-price">₦10,000</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 6" class="product-image" style="filter: brightness(0.92);">
+                        <div class="product-info">
+                            <span class="product-category">Outerwear</span>
+                            <h4 class="product-title">Denim Jacket</h4>
+                            <span class="product-price">₦18,000</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 7" class="product-image" style="filter: brightness(0.9);">
+                        <div class="product-info">
+                            <span class="product-category">Basics</span>
+                            <h4 class="product-title">Tank Tops</h4>
+                            <span class="product-price">₦4,500</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <img src="images/swiftwears.jpeg" alt="Product 8" class="product-image" style="filter: brightness(0.87);">
+                        <div class="product-info">
+                            <span class="product-category">Activewear</span>
+                            <h4 class="product-title">Sports Shorts</h4>
+                            <span class="product-price">₦7,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-instagram"></i>
+                        <h4>Instagram</h4>
+                        <p class="text-secondary mb-0">@swiftwears</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p class="text-secondary mb-0">+2347069452279</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email</h4>
+                        <p class="text-secondary mb-0">hello@swiftwears.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="text-center mb-4">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-text">SWIFTWEARS</span>
+                </a>
+            </div>
+            <div class="social-links mb-4">
+                <a href="https://instagram.com/swiftwears" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://twitter.com/swiftwears" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://facebook.com/swiftwears" target="_blank"><i class="bi bi-facebook"></i></a>
+            </div>
+            <p class="text-center text-secondary mb-0">&copy; 2024 SwiftWears. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project Details - Visual Designer and Frontend Developer Portfolio">
+    <title>Project Details | Jewel Maxwell Moses</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Project Detail Page Styles */
+        .project-detail-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .project-title-large {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-description-large {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+        
+        .social-links-section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .social-link-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .social-link-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+        }
+        
+        .social-link-card i {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+        }
+        
+        .designs-section {
+            padding: 80px 0;
+        }
+        
+        .design-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .design-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .design-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        
+        .design-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .design-card:hover .design-image-wrapper img {
+            transform: scale(1.05);
+        }
+        
+        .design-content {
+            padding: 1.5rem;
+        }
+        
+        .design-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .design-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .design-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .back-to-portfolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .back-to-portfolio:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        .timeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .timeline-badge i {
+            font-size: 0.9rem;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            background: var(--accent-secondary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            .project-title-large {
+                font-size: 2.5rem;
+            }
+            
+            .project-description-large {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-text">JMAX</span>
+            </a>
+            <a href="index.html#projects" class="back-to-portfolio">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </nav>
+
+    <!-- Project Detail Header -->
+    <section class="project-detail-header">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-8">
+                    <a href="index.html#projects" class="back-to-portfolio mb-4 d-inline-flex">
+                        <i class="bi bi-arrow-left"></i> Back to Projects
+                    </a>
+                    <h1 class="project-title-large" id="projectTitle">Project Title</h1>
+                    <div class="d-flex flex-wrap gap-3 align-items-center mt-3">
+                        <span class="category-badge" id="projectCategory">Category</span>
+                        <span class="timeline-badge">
+                            <i class="bi bi-calendar3"></i>
+                            <span id="projectTimeline">Timeline</span>
+                        </span>
+                        <span class="project-meta-badge">
+                            <i class="bi bi-briefcase"></i>
+                            <span id="projectType">Type</span>
+                        </span>
+                    </div>
+                    <p class="project-description-large mt-4" id="projectDescription">
+                        Project description will appear here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section class="social-links-section">
+        <div class="container">
+            <h3 class="section-title mb-4">View on Social Media</h3>
+            <div class="row g-3" id="socialLinksContainer">
+                <!-- Social links will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Designs Gallery Section -->
+    <section class="designs-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <span class="section-subtitle">Design Gallery</span>
+                    <h2 class="section-title">All Designs for This Project</h2>
+                </div>
+                <div class="col-lg-6">
+                    <p class="text-secondary">
+                        Explore all the visual designs created for this brand. Each piece was crafted to meet 
+                        the specific needs and goals of the project.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4" id="designsContainer">
+                <!-- Design cards will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section class="other-projects-section py-5">
+        <div class="container">
+            <h3 class="section-title mb-4">Other Projects</h3>
+            <div class="row g-4" id="otherProjectsContainer">
+                <!-- Other project cards will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <a href="index.html" class="brand-text">JMAX</a>
+                        <p class="footer-tagline">Visual Designer & Frontend Developer</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <nav class="footer-nav">
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#projects">Projects</a>
+                        <a href="index.html#services">Services</a>
+                        <a href="index.html#contact">Contact</a>
+                    </nav>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-social">
+                        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" aria-label="Dribbble">
+                            <i class="bi bi-dribbble"></i>
+                        </a>
+                        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                            <i class="bi bi-behance"></i>
+                        </a>
+                        <a href="https://github.com/computerixed" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maxwell-moses-jewel/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 Jewel Maxwell Moses. All rights reserved.</p>
+                <p class="credits">Designed & Built by Jewel Maxwell Moses <i class="bi bi-heart-fill"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Project Detail JS -->
+    <script>
+        // ========================================
+        // Project Detail Data
+        // ========================================
+        
+        const projectDetailsData = {
+            inventrium: {
+                id: 1,
+                title: "Inventrium",
+                category: "Social Media",
+                timeline: "February 2024 - September 2024",
+                type: "Full-time Role",
+                description: "Comprehensive social media and digital content creation for Inventrium, a technology company. Created engaging visual content for various platforms to boost brand awareness and audience engagement.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://www.instagram.com/inventrium/?g=5", icon: "bi-instagram" },
+                    { platform: "X (Twitter)", url: "https://x.com/Inventrium", icon: "bi-twitter-x" },
+                    { platform: "LinkedIn", url: "https://www.linkedin.com/company/inventrium-business-support-services/", icon: "bi-linkedin" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Product Launch Campaign",
+                        description: "Series of social media posts announcing new tech product features with modern, sleek design aesthetics.",
+                        image: "images/inventrium.png"
+                    },
+                    {
+                        id: 2,
+                        title: "Tech Infographics",
+                        description: "Educational infographics explaining complex technology concepts in simple, visually appealing formats.",
+                        image: "images/inventrium2.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Brand Story Series",
+                        description: "Visual storytelling posts showcasing company culture, team members, and behind-the-scenes content.",
+                        image: "images/inventrium3.png"
+                    },
+                    {
+                        id: 4,
+                        title: "Event Promotion Graphics",
+                        description: "Eye-catching promotional materials for tech webinars, conferences, and virtual events.",
+                        image: "images/inventrium4.png"
+                    },
+                    {
+                        id: 5,
+                        title: "Social Media Templates",
+                        description: "Consistent brand templates for ongoing social media content maintaining visual identity.",
+                        image: "images/inventrium5.png"
+                    },
+                    {
+                        id: 6,
+                        title: "Email Campaign Designs",
+                        description: "Newsletter and email marketing designs with responsive layouts and compelling CTAs.",
+                        image: "images/inventrium6.png"
+                    }
+                ]
+            },
+            everboom: {
+                id: 2,
+                title: "Everboom",
+                category: "Social Media",
+                timeline: "September 2024 - December 2025",
+                type: "Full-time Role",
+                description: "Complete social media management and brand visual content creation for Everboom, a homeschool brand focused on early childhood education for ages 0-5. Created engaging educational content, learning materials, and promotional materials for young children and their parents.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://instagram.com/everboom", icon: "bi-instagram" },
+                    { platform: "TikTok", url: "https://tiktok.com/@everboom", icon: "bi-tiktok" },
+                    { platform: "Facebook", url: "https://facebook.com/everboom", icon: "bi-facebook" },
+                    { platform: "Pinterest", url: "https://pinterest.com/everboom", icon: "bi-pinterest" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Early Learning Campaign",
+                        description: "Vibrant social media campaign showcasing educational activities for toddlers aged 0-5 with bright colors and playful imagery.",
+                        image: "images/everboom.jpeg"
+                    },
+                    {
+                        id: 2,
+                        title: "Kids Activity Posts",
+                        description: "Engaging posts featuring creative learning activities, coloring pages, and educational games for young children.",
+                        image: "images/everboom (1).jpeg"
+                    },
+                    {
+                        id: 3,
+                        title: "Parent Resources",
+                        description: "Helpful resources for parents including homeschool tips, curriculum guides, and learning milestones.",
+                        image: "images/everboom (2).jpeg"
+                    },
+                    {
+                        id: 4,
+                        title: "Story Time Content",
+                        description: "Storytelling posts and book recommendations for early readers with colorful illustrations.",
+                        image: "images/everboom (3).jpeg"
+                    },
+                    {
+                        id: 5,
+                        title: "Learning Milestones",
+                        description: "Developmental milestone graphics tracking progress for ages 0-5, from infants to preschoolers.",
+                        image: "images/everboom (4).jpeg"
+                    },
+                    {
+                        id: 6,
+                        title: "Seasonal Learning Activities",
+                        description: "Special seasonal educational content with themes for holidays and celebrations.",
+                        image: "images/everboom (5).jpeg"
+                    }
+                ]
+            },
+            sheinkspire: {
+                id: 3,
+                title: "SheINKspires",
+                category: "Branding & Graphics",
+                timeline: "February 2026",
+                type: "Contract Job",
+                description: "Complete brand rebrand for SheINKspires, a fashion brand. Created new logo designs, brand guidelines, and visual identity system during a one-month contract.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://instagram.com/sheinkspires", icon: "bi-instagram" },
+                    { platform: "Facebook", url: "https://facebook.com/sheinkspiresafrica", icon: "bi-facebook" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Logo Redesign",
+                        description: "Modern, feminine logo design capturing the essence of the fashion brand with elegant typography.",
+                        image: "images/sheinkspires-logo.jpeg"
+                    },
+                    {
+                        id: 2,
+                        title: "Brand Color Palette",
+                        description: "Curated color palette defining primary, secondary, and accent colors for consistent branding.",
+                        image: "images/sheinkspires2.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Business Cards",
+                        description: "Professional business card design with embossed logo and coordinated brand elements - front and back.",
+                        image: "images/sheinkspires-Front_Businees Card.png"
+                    },
+                    {
+                        id: 4,
+                        title: "Brand Guidelines Document",
+                        description: "Comprehensive brand style guide documenting logo usage, colors, typography, and tone of voice.",
+                        image: "images/sheinkspires-media kit.png"
+                    },
+                    {
+                        id: 5,
+                        title: "Letterhead Design",
+                        description: "Official letterhead design with brand logo and consistent visual identity for official documents.",
+                        image: "images/SheINKspires colaterals - letterhead 1improved.png"
+                    },
+                    {
+                        id: 6,
+                        title: "Social Media Kit",
+                        description: "Custom social media profile templates and post templates for consistent brand presence.",
+                        image: "images/sheinkspires-back of business card.png"
+                    }
+                ]
+            },
+            lapidoth: {
+                id: 4,
+                title: "Lapidoth Foundation",
+                category: "Branding & Graphics",
+                timeline: "August 2025 - Present",
+                type: "Volunteer Work",
+                description: "Pro bono social media graphics and campaign design for Lapidoth Foundation, a nonprofit organization. Creating awareness materials for various charitable causes and community initiatives.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://www.instagram.com/lapidothfoundation/", icon: "bi-instagram" },
+                    { platform: "LinkedIn", url: "https://linkedin.com/company/lapidothfoundation", icon: "bi-linkedin" },
+                    { platform: "Facebook", url: "https://facebook.com/lapidothfoundation", icon: "bi-facebook" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Awareness Campaign Graphics",
+                        description: "Impactful visual content raising awareness for foundation causes and community programs.",
+                        image: "images/lapidoth4.png"
+                    },
+                    {
+                        id: 2,
+                        title: "Event Promotion Materials",
+                        description: "Promotional designs for charity events, fundraisers, and community gatherings.",
+                        image: "images/lapidoth2.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Donation Campaign",
+                        description: "Compelling donation appeal graphics with emotional storytelling and clear CTAs.",
+                        image: "images/lapidoth3.png"
+                    },
+                    {
+                        id: 4,
+                        title: "Volunteer Recruitment",
+                        description: "Engaging graphics calling for volunteers with clear information and inspiring imagery.",
+                        image: "images/lapidoth.jpeg"
+                    },
+                    {
+                        id: 5,
+                        title: "Impact Stories Posts",
+                        description: "Visual storytelling posts showcasing foundation achievements and beneficiary stories.",
+                        image: "images/lapidoth5.png"
+                    },
+                    {
+                        id: 6,
+                        title: "Newsletter Graphics",
+                        description: "Email newsletter header images and content blocks for monthly updates.",
+                        image: "images/lapidoth6.png"
+                    }
+                ]
+            },
+            earthtab: {
+                id: 5,
+                title: "Earthtab",
+                category: "Web Design",
+                timeline: "February 2025 - August 2025",
+                type: "Full-time Role",
+                description: "Frontend development and social media content creation for Earthtab, a tech platform. Built responsive web interfaces and created engaging social media content to drive user acquisition.",
+                socialLinks: [
+                    { platform: "Website", url: "https://earthtab.com", icon: "bi-globe" },
+                    { platform: "Twitter", url: "https://twitter.com/earthtab", icon: "bi-twitter-x" },
+                    { platform: "LinkedIn", url: "https://linkedin.com/company/earthtab", icon: "bi-linkedin" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Website Landing Page",
+                        description: "Modern, conversion-optimized landing page design showcasing platform features and value proposition.",
+                        image: "images/earthtab.png"
+                    },
+                    {
+                        id: 2,
+                        title: "Dashboard UI Design",
+                        description: "User-friendly dashboard interface with intuitive navigation and data visualization elements.",
+                        image: "images/earthtab2.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Feature Announcement Posts",
+                        description: "Social media posts announcing new platform features with clear visual explanations.",
+                        image: "images/inventrium7.png"
+                    },
+                    {
+                        id: 4,
+                        title: "User Onboarding Graphics",
+                        description: "Step-by-step visual guides helping new users get started with the platform.",
+                        image: "images/inventrium10.png"
+                    },
+                    {
+                        id: 5,
+                        title: "Tech Blog Featured Images",
+                        description: "Eye-catching blog post images for content marketing and SEO optimization.",
+                        image: "images/inventriumA.png"
+                    },
+                    {
+                        id: 6,
+                        title: "Mobile App Screens",
+                        description: "Mobile-responsive UI designs for iOS and Android app interfaces.",
+                        image: "images/inventriumB.png"
+                    }
+                ]
+            },
+            wiseswift: {
+                id: 6,
+                title: "WiseSwift",
+                category: "Branding & Graphics",
+                timeline: "September 2025 - Present",
+                type: "Freelance (Bi-monthly)",
+                description: "Ongoing freelance graphics design work for WiseSwift, a clothing brand. Creating visual content at least twice a month including product posts, promotional materials, and brand content.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://instagram.com/wiseswift", icon: "bi-instagram" },
+                    { platform: "TikTok", url: "https://tiktok.com/@wiseswift", icon: "bi-tiktok" },
+                    { platform: "Facebook", url: "https://facebook.com/wiseswift", icon: "bi-facebook" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Product Showcase Posts",
+                        description: "Professional product photography presentations highlighting clothing items with brand styling.",
+                        image: "https://picsum.photos/seed/wiseswift1/800/600"
+                    },
+                    {
+                        id: 2,
+                        title: "Collection Launch Graphics",
+                        description: "Launch materials for new clothing collections with cohesive visual themes.",
+                        image: "https://picsum.photos/seed/wiseswift2/800/600"
+                    },
+                    {
+                        id: 3,
+                        title: "Promotional Banners",
+                        description: "Versatile promotional graphics for sales, discounts, and special offers.",
+                        image: "https://picsum.photos/seed/wiseswift3/800/600"
+                    },
+                    {
+                        id: 4,
+                        title: "Style Guide Content",
+                        description: "Lifestyle and styling content showing how to wear and pair clothing items.",
+                        image: "https://picsum.photos/seed/wiseswift4/800/600"
+                    },
+                    {
+                        id: 5,
+                        title: "Customer Testimonial Graphics",
+                        description: "Visual customer reviews and testimonials for social proof and trust building.",
+                        image: "https://picsum.photos/seed/wiseswift5/800/600"
+                    },
+                    {
+                        id: 6,
+                        title: "Seasonal Campaign Designs",
+                        description: "Seasonal and holiday-themed campaign graphics aligned with fashion trends.",
+                        image: "https://picsum.photos/seed/wiseswift6/800/600"
+                    }
+                ]
+            },
+            remicollege: {
+                id: 7,
+                title: "Remicollege",
+                category: "Web Design",
+                timeline: "2025",
+                type: "Project",
+                description: "Built a complete online result system for Remicollege school. Designed intuitive user experience for students, teachers, and administrators, with a fully functional result management web application.",
+                socialLinks: [
+                    { platform: "Website", url: "https://remicollege.org/portal/admin/system.php", icon: "bi-globe" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Student Portal Design",
+                        description: "User-friendly student dashboard for viewing results, checking attendance, and accessing learning materials.",
+                        image: "images/remi-student.png"
+                    },
+                    {
+                        id: 2,
+                        title: "Teacher Admin Panel",
+                        description: "Comprehensive admin interface for teachers to input grades, manage classes, and generate reports.",
+                        image: "images/remi-teacherdash.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Result Entry Interface",
+                        description: "Streamlined grade entry system with validation, bulk upload, and automatic calculations.",
+                        image: "images/remi-resultentry.png"
+                    },
+                    {
+                        id: 4,
+                        title: "Parent Portal",
+                        description: "Secure parent access to monitor student progress, results, and school communications.",
+                        image: "images/remi-teacherlogin.png"
+                    },
+                    {
+                        id: 5,
+                        title: "Report Card Generation",
+                        description: "Automated report card generation with customizable templates and PDF export functionality.",
+                        image: "images/remireportcard.png"
+                    },
+                    {
+                        id: 6,
+                        title: "Mobile Responsive Design",
+                        description: "Fully responsive designs ensuring seamless access across desktop, tablet, and mobile devices.",
+                        image: "images/remi -mobile.png"
+                    }
+                ]
+            },
+            myprojectschool: {
+                id: 9,
+                title: "My Project School",
+                category: "Social Media",
+                timeline: "2023 - Present",
+                type: "Project",
+                description: "Social media management and content creation for My Project School, an educational platform. Creating engaging educational content and school announcements.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://www.instagram.com/myprojectschool/", icon: "bi-instagram" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Educational Content Posts",
+                        description: "Informative posts about various subjects and learning materials for students.",
+                        image: "https://picsum.photos/seed/projectschool1/800/600"
+                    },
+                    {
+                        id: 2,
+                        title: "Event Announcements",
+                        description: "School event promotions and announcement graphics.",
+                        image: "https://picsum.photos/seed/projectschool2/800/600"
+                    },
+                    {
+                        id: 3,
+                        title: "Student Achievement Posts",
+                        description: "Celebrating student achievements and milestones.",
+                        image: "https://picsum.photos/seed/projectschool3/800/600"
+                    },
+                    {
+                        id: 4,
+                        title: "Academic Calendar Graphics",
+                        description: "Visual academic calendar and schedule postings.",
+                        image: "https://picsum.photos/seed/projectschool4/800/600"
+                    },
+                    {
+                        id: 5,
+                        title: "Tutorial Thumbnails",
+                        description: "Engaging thumbnails for video tutorials and online classes.",
+                        image: "https://picsum.photos/seed/projectschool5/800/600"
+                    },
+                    {
+                        id: 6,
+                        title: "Social Media Templates",
+                        description: "Branded templates for consistent social media presence.",
+                        image: "https://picsum.photos/seed/projectschool6/800/600"
+                    }
+                ]
+            },
+            rayzwellness: {
+                id: 10,
+                title: "Rayz Wellness Global",
+                category: "Branding & Graphics",
+                timeline: "2023 - Present",
+                type: "Volunteer Work",
+                description: "Pro bono social media graphics and brand design for Rayz Wellness Global, a wellness company. Creating visual content for health campaigns, brand materials, and community engagement.",
+                socialLinks: [
+                    { platform: "Instagram", url: "https://www.instagram.com/rayzwellnessglobal/", icon: "bi-instagram" },
+                    { platform: "Facebook", url: "https://facebook.com/rayzwellnessglobal", icon: "bi-facebook" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Brand Logo Design",
+                        description: "Professional logo design representing wellness and holistic health approach.",
+                        image: "images/Rayz Global.jpeg"
+                    },
+                    {
+                        id: 2,
+                        title: "Wellness Campaign Graphics",
+                        description: "Health awareness campaign visuals promoting wellness programs and services.",
+                        image: "images/Rayz Global2.jpeg"
+                    },
+                    {
+                        id: 3,
+                        title: "Social Media Content",
+                        description: "Engaging social media posts for health tips, wellness programs, and community building.",
+                        image: "images/Rayz Global3.jpeg"
+                    },
+                    {
+                        id: 4,
+                        title: "Health Awareness Posts",
+                        description: "Informative graphics about various health topics and wellness practices.",
+                        image: "images/Rayz Global.jpeg"
+                    },
+                    {
+                        id: 5,
+                        title: "Brand Identity Materials",
+                        description: "Consistent brand identity materials for marketing and communications.",
+                        image: "images/Rayz Global2.jpeg"
+                    },
+                    {
+                        id: 6,
+                        title: "Community Engagement Content",
+                        description: "Content designed to engage community and promote wellness events.",
+                        image: "images/Rayz Global3.jpeg"
+                    }
+                ]
+            },
+            swiftwears: {
+                id: 8,
+                title: "SwiftWears",
+                category: "Web Design",
+                timeline: "2023",
+                type: "Project",
+                description: "E-commerce website design for SwiftWears fashion brand. Created a modern, conversion-focused online store with intuitive navigation and seamless shopping experience.",
+                socialLinks: [
+                    { platform: "Website", url: "swiftwears.html", icon: "bi-globe" },
+                    { platform: "Instagram", url: "https://instagram.com/swiftwears", icon: "bi-instagram" }
+                ],
+                designs: [
+                    {
+                        id: 1,
+                        title: "Homepage Design",
+                        description: "Striking homepage with hero slider, featured products, and clear call-to-action buttons.",
+                        image: "images/swiftwears.jpeg"
+                    },
+                    {
+                        id: 2,
+                        title: "Product Catalog",
+                        description: "Clean product grid layout with filtering, sorting, and quick view functionality.",
+                        image: "images/jmax.png"
+                    },
+                    {
+                        id: 3,
+                        title: "Product Detail Page",
+                        description: "Comprehensive product pages with image gallery, size guide, and customer reviews.",
+                        image: "images/jmax2.png"
+                    },
+                    {
+                        id: 4,
+                        title: "Shopping Cart & Checkout",
+                        description: "Streamlined checkout process with cart summary, coupon codes, and secure payment.",
+                        image: "images/everboom (6).jpeg"
+                    },
+                    {
+                        id: 5,
+                        title: "About & Contact Pages",
+                        description: "Brand storytelling pages with contact forms and location information.",
+                        image: "images/everboom (7).jpeg"
+                    },
+                    {
+                        id: 6,
+                        title: "Mobile App Design",
+                        description: "Mobile-first responsive design ensuring smooth shopping experience on all devices.",
+                        image: "images/everboom (8).jpeg"
+                    }
+                ]
+            }
+        };
+
+        // ========================================
+        // Get Project ID from URL
+        // ========================================
+        
+        function getProjectIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('project') || 'inventrium';
+        }
+
+        // ========================================
+        // Render Project Details
+        // ========================================
+        
+        function renderProjectDetails() {
+            const projectId = getProjectIdFromURL();
+            const project = projectDetailsData[projectId];
+            
+            if (!project) {
+                window.location.href = 'index.html#projects';
+                return;
+            }
+            
+            // Update header info
+            document.getElementById('projectTitle').textContent = project.title;
+            document.getElementById('projectCategory').textContent = project.category;
+            document.getElementById('projectTimeline').textContent = project.timeline;
+            document.getElementById('projectType').textContent = project.type;
+            document.getElementById('projectDescription').textContent = project.description;
+            document.title = `${project.title} | Jewel Maxwell Moses`;
+            
+            // Render social links
+            const socialContainer = document.getElementById('socialLinksContainer');
+            socialContainer.innerHTML = project.socialLinks.map(link => `
+                <div class="col-md-6 col-lg-3">
+                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link-card">
+                        <i class="bi ${link.icon}"></i>
+                        <span>${link.platform}</span>
+                        <i class="bi bi-arrow-up-right ms-auto"></i>
+                    </a>
+                </div>
+            `).join('');
+            
+            // Render designs
+            const designsContainer = document.getElementById('designsContainer');
+            designsContainer.innerHTML = project.designs.map((design, index) => `
+                <div class="col-md-6 col-lg-4">
+                    <div class="design-card">
+                        <div class="design-image-wrapper">
+                            <img src="${design.image}" alt="${design.title}" onerror="this.src='https://via.placeholder.com/800x600?text=Design+${index + 1}'">
+                        </div>
+                        <div class="design-content">
+                            <span class="design-number">${index + 1}</span>
+                            <h4 class="design-title">${design.title}</h4>
+                            <p class="design-description">${design.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Render other projects
+            const otherProjects = Object.values(projectDetailsData)
+                .filter(p => p.id !== project.id)
+                .slice(0, 3);
+            
+            const otherContainer = document.getElementById('otherProjectsContainer');
+            otherContainer.innerHTML = otherProjects.map(p => `
+                <div class="col-md-6 col-lg-4">
+                    <a href="project-detail.html?project=${Object.keys(projectDetailsData).find(key => projectDetailsData[key].id === p.id)}" class="project-card-link">
+                        <div class="project-card" data-bs-toggle="modal">
+                            <img src="${p.designs[0].image}" alt="${p.title}" class="project-image" onerror="this.src='https://via.placeholder.com/600x500'">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <span class="project-category">${p.category}</span>
+                                    <h3 class="project-title">${p.title}</h3>
+                                    <p class="project-description">${p.timeline}</p>
+                                </div>
+                                <button class="project-link">
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </button>
+                            </div>
+                            <div class="project-tag">View Project</div>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+            
+            // Add styles for project card links
+            const style = document.createElement('style');
+            style.textContent = `
+                .project-card-link {
+                    text-decoration: none;
+                    display: block;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // ========================================
+        // Initialize
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjectDetails();
+            
+            // Navbar scroll effect
+            const navbar = document.getElementById('mainNav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
